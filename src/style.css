@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  :root {
+    --background:  0 0% 100%;
+    /* ^ white */
+    --foreground: 224 71.4% 4.1%;
+    /* ^ gray-950 */
+    --card:  0 0% 100%;
+    /* ^ white */
+    --card-foreground: 224 71.4% 4.1%;
+    /* ^ gray-950 */
+    --popover:  0 0% 100%;
+    /* ^ white */
+    --popover-foreground: 224 71.4% 4.1%;
+    /* ^ gray-950 */
+    --primary: 243.4 75.4% 58.6%;
+    /* ^ indigo-600 */
+    --primary-foreground: 210 20% 98%;
+    /* ^ gray-50 */
+    --secondary: 220 14.3% 95.9%;
+    /* ^ gray-100 */
+    --secondary-foreground: 220.9 39.3% 11%;
+    /* ^ gray-900 */
+    --muted: 220 14.3% 95.9%;
+    /* ^ gray-100 */
+    --muted-foreground: 220 8.9% 46.1%;
+    /* ^ gray-500 */
+    --accent: 220 14.3% 95.9%;
+    /* ^ gray-100 */
+    --accent-foreground: 220.9 39.3% 11%;
+    /* ^ gray-900 */
+    --destructive: 0 84.2% 60.2%;
+    /* ^ red-500 */
+    --destructive-foreground: 210 20% 98%;
+    /* ^ gray-50 */
+    --border: 220 13% 91%;
+    /* ^ gray-200 */
+    --input: 220 13% 91%;
+    /* ^ gray-200 */
+    --ring: 243.4 75.4% 58.6%;
+    /* ^ indigo-600 */
+    --radius: 0.5rem;
+  }
+ 
+  .dark {
+    --background: 224 71.4% 4.1%;
+    /* ^ gray-950 */
+    --foreground: 210 20% 98%;
+    /* ^ gray-50 */
+    --card: 224 71.4% 4.1%;
+    /* ^ gray-950 */
+    --card-foreground: 210 20% 98%;
+    /* ^ gray-50 */
+    --popover: 224 71.4% 4.1%;
+    /* ^ gray-950 */
+    --popover-foreground: 210 20% 98%;
+    /* ^ gray-50 */
+    --primary: 244.5 57.9% 50.6%;
+    /* ^ indigo-700 */
+    --primary-foreground: 210 20% 98%;
+    /* ^ gray-50 */
+    --secondary: 215 27.9% 16.9%;
+    /* ^ gray-800 */
+    --secondary-foreground: 210 20% 98%;
+    /* ^ gray-50 */
+    --muted: 215 27.9% 16.9%;
+    /* ^ gray-800 */
+    --muted-foreground: 217.9 10.6% 64.9%;
+    /* ^ gray-400 */
+    --accent: 215 27.9% 16.9%;
+    /* ^ gray-800 */
+    --accent-foreground: 210 20% 98%;
+    /* ^ gray-50 */
+    --destructive: 0 62.8% 30.6%;
+    /* ^ red-900 */
+    --destructive-foreground: 210 20% 98%;
+    /* ^ gray-50 */
+    --border: 215 27.9% 16.9%;
+    /* ^ gray-800 */
+    --input: 215 27.9% 16.9%;
+    /* ^ gray-800 */
+    --ring: 244.5 57.9% 50.6%;
+    /* ^ indigo-700 */
+  }
+}
+
+
+
+
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
