@@ -15,7 +15,7 @@ import {
 } from "./ui/dropdown-menu";
 import { Input } from "./ui/input";
 export interface TopSearchFormInput {
-  input: string;
+  value: string;
 }
 
 interface TopSearchProps {
@@ -31,7 +31,7 @@ export function TopSearch({ onSubmit, historyAtom }: TopSearchProps) {
     onSubmit(data);
     await new Promise((resolve) => setTimeout(resolve, 500));
     // wait for dropdown close animation to finish
-    setSearchHistory([data.input, ...searchHistory]);
+    setSearchHistory([data.value, ...searchHistory]);
   };
 
   return (
@@ -46,7 +46,7 @@ export function TopSearch({ onSubmit, historyAtom }: TopSearchProps) {
         className="w-full bg-background border-none shadow-none text-sm"
         placeholder="Search..."
         autoFocus={true}
-        {...register("input", { required: true })}
+        {...register("value", { required: true })}
       />
 
       {searchHistory.length > 0 && (
@@ -62,7 +62,7 @@ export function TopSearch({ onSubmit, historyAtom }: TopSearchProps) {
             {searchHistory.map((search, idx) => (
               <DropdownMenuItem
                 key={idx}
-                onSelect={() => onSubmitWithHistory({ input: search })}
+                onSelect={() => onSubmitWithHistory({ value: search })}
               >
                 {search}
               </DropdownMenuItem>

@@ -3,6 +3,7 @@
 import {
   currentProductAtom,
   isPulsingAtom,
+  searchHistoryAtom,
   tableViewAtom,
 } from "@/src/atoms/products";
 import ErrorAlert from "@/src/components/error-alert";
@@ -22,11 +23,31 @@ import { ProductLandingInfo } from "./components/product-landing-info";
 import { ProductTable } from "./components/product-table";
 import { SalesOrderTable } from "./components/sales-order-table";
 import ProductSkeleton from "./loading";
+import { SubmitHandler } from "react-hook-form";
+import { TopSearch, TopSearchFormInput } from "@/src/components/top-search";
 
-export default function ProductResult() {
+export default function ProductPage() {
+  const [product, setProduct] = useAtom(currentProductAtom);
+
+  const onSubmit: SubmitHandler<TopSearchFormInput> = (data) => {
+    setProduct(data.value);
+  };
+
+  return (
+    <>
+      <TopSearch onSubmit={onSubmit} historyAtom={searchHistoryAtom} />
+      <ProductResult product_id={product} />
+    </>
+  );
+}
+
+interface ProductResultProps {
+  product_id: string;
+}
+
+function ProductResult({ product_id }: ProductResultProps) {
   const [isPulsing, setIsPulsing] = useAtom(isPulsingAtom);
   const [tableView, setTableView] = useAtom(tableViewAtom);
-  const [product_id] = useAtom(currentProductAtom);
   const { data, isLoading, isError, error } = useProduct(product_id);
 
   if (!product_id) return <ProductLandingInfo />;
