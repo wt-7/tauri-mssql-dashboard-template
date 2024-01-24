@@ -26,7 +26,7 @@ impl bb8::ManageConnection for TiberiusConnectionManager {
         Client::connect(self.config.clone(), tcp.compat_write()).await
     }
 
-    async fn is_valid(&self, conn: &mut Self::Connection) -> anyhow::Result<(), Self::Error> {
+    async fn is_valid(&self, conn: &mut Self::Connection) -> Result<(), Self::Error> {
         conn.simple_query("SELECT 1").await?;
         Ok(())
     }
