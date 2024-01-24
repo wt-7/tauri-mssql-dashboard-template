@@ -5,6 +5,7 @@
 
 mod commands;
 mod database;
+mod schema;
 
 use commands::{get_product, get_purchase_orders, is_connection_active};
 use database::manager::TiberiusConnectionManager;

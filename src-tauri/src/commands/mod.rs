@@ -1,5 +1,5 @@
-use crate::database::types::{ProductData, PurchaseOrderData};
 use crate::database::SQLServer;
+use crate::schema::{ProductData, PurchaseOrderData};
 use anyhow::Result;
 use tauri::State;
 
